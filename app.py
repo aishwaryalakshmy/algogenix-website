@@ -21,10 +21,6 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-# Ensure tables are created in both dev and production
-with app.app_context():
-    db.create_all()
-
 
 # Contact model to store form submissions
 class Contact(db.Model):
@@ -36,6 +32,11 @@ class Contact(db.Model):
 
     def __repr__(self):
         return f"<Contact {self.id} {self.email}>"
+    
+# Create tables after models are defined
+with app.app_context():
+    db.create_all()
+    
 
 # Load projects from a simple in-memory list for demonstration.
 # You can replace this with dynamic content or a database table.
