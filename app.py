@@ -7,17 +7,24 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'dev-secret-key')
 
 # Database config:
-# In production set DATABASE_URL environment variable to:
-# postgresql://USER:PASSWORD@HOST:PORT/DBNAME
 DATABASE_URL = os.environ.get('DATABASE_URL')
+# Render gives "postgres://" but SQLAlchemy needs "postgresql://"
+if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
 if DATABASE_URL:
     app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 else:
-    # Fallback to a local sqlite DB for quick local testing
+    # Fallback to local SQLite for quick testing
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///algogenix_dev.db'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+# Ensure tables are created in both dev and production
+with app.app_context():
+    db.create_all()
+
 
 # Contact model to store form submissions
 class Contact(db.Model):
