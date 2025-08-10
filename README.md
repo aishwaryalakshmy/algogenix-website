@@ -1,3 +1,121 @@
+# 🚀 Algogenix
+
+**Full-Stack Web Application with Flask, PostgreSQL, and Render Deployment**
+
+Algogenix is a modern full-stack web application showcasing portfolio projects and featuring a fully functional contact form that stores submissions in a PostgreSQL database. Deployed using **Render** with a free-tier setup, the app demonstrates scalable architecture and seamless database integration.
+
+---
+
+## 📌 Features
+
+* **Modern UI** with responsive design.
+* **Contact Form**: Securely stores form submissions in PostgreSQL.
+* **Portfolio Section**: Displays featured projects dynamically.
+* **Deployed on Render** with auto-redeploy from GitHub.
+* **Persistent Database**: Hosted on Render’s PostgreSQL instance and viewable in TablePlus.
+
+---
+
+## 🛠 Tech Stack
+
+### **Frontend**
+
+* HTML5, CSS3, JavaScript
+* Bootstrap (Responsive UI components)
+* Custom animations and styles
+
+### **Backend**
+
+* Python 3.x
+* Flask (Web framework)
+* Jinja2 (Templating engine)
+
+### **Database**
+
+* PostgreSQL (Hosted on Render)
+* SQLAlchemy ORM (Flask-SQLAlchemy for DB operations)
+
+### **Deployment & Tools**
+
+* Render (Web service hosting + PostgreSQL database)
+* Gunicorn (WSGI HTTP Server for production)
+* TablePlus (GUI database management tool)
+* Git & GitHub (Version control and deployment integration)
+
+---
+
+## 📂 Project Structure
+
+```
+Algogenix/
+│
+├── app.py                # Main Flask application
+├── requirements.txt      # Python dependencies
+├── Procfile              # Render deployment entry point
+├── templates/            # HTML templates (Jinja2)
+├── static/               # CSS, JS, images
+├── README.md             # Project documentation
+└── ...
+```
+
+---
+
+## ⚙️ Setup & Run Locally
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/<your-username>/algogenix.git
+   cd algogenix
+   ```
+
+2. **Create a virtual environment & install dependencies**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+3. **Set environment variables**
+
+   ```bash
+   export FLASK_SECRET_KEY="your_secret_key"
+   export DATABASE_URL="your_postgresql_url"
+   ```
+
+4. **Run the app**
+
+   ```bash
+   flask run
+   ```
+
+---
+
+## 🌐 Deployment
+
+* **Platform**: Render
+* **Database**: Render PostgreSQL (external connection via TablePlus)
+* Automatic redeploys triggered on push to `main` branch in GitHub.
+
+---
+
+## 📸 Screenshots
+
+*(Add app screenshots here)*
+
+---
+
+## 👩‍💻 Author
+
+**Algogenix Team** — Building innovative web solutions.
+
+---
+
+
+______________________________________________________________________________________________
+
+
 # AlgoGenix — Portfolio Website
 
 This is a modern, dark-themed portfolio website for AlgoGenix built with Flask (Python) and a PostgreSQL-compatible database.
