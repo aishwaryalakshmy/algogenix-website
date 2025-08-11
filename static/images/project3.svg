@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
-  <rect width="100%" height="100%" fill="#0f0f0f"/>
-  <g fill="#00e6e6" font-family="Arial" font-size="48">
-    <text x="60" y="120">AlgoGenix</text>
-    <text x="60" y="200" font-size="28">Project 3 — Portfolio</text>
-  </g>
-</svg>

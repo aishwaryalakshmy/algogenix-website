@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>AlgoGenix | Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 <body>
-    <header>
+    <header class="old-header-hide">
         <div class="container header-inner">
-            <div class="logo">AlgoGenix</div>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="AlgoGenix" />
+            </div>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -22,14 +25,44 @@
         </div>
     </header>
 
+    <nav id="dynamic-navbar" class="dynamic-navbar">
+        <div class="container navbar-container">
+            <div class="new-logo-wrapper">
+                <a href="#top" class="animated-logo-link">
+                    <img src="{{ url_for('static', filename='images/algogenix-logo-animated.gif') }}" alt="AlgoGenix Logo" class="animated-logo-image" />
+                    <span class="logo-text">AlgoGenix</span>
+                </a>
+            </div>
+            <ul class="new-nav-links">
+                <li><a href="#about" class="new-nav-link">About Us</a></li>
+                <li><a href="#services" class="new-nav-link">Services</a></li>
+                <li><a href="#projects-showcase" class="new-nav-link">Projects</a></li>
+                <li><a href="#tech-stack" class="new-nav-link">Technologies</a></li>
+                <li><a href="#contact" class="new-nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle-btn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
     <main>
         {% block content %}{% endblock %}
     </main>
 
     <footer>
         <div class="container">
+            <div class="social-links">
+              <a href="https://github.com/Algo-Genix" target="_blank"><i class="fab fa-github"></i></a>
+             <a href="https://www.linkedin.com/company/algo-genix/" target="_blank"><i class="fab fa-linkedin"></i></a>
+             <a href="https://www.instagram.com/algo_genix?igsh=MTRqaDVzb2o2cm5xOQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
             <p>© {{ current_year }} AlgoGenix. All rights reserved.</p>
         </div>
     </footer>
+    <div id="floating-widgets">
+        <button id="scroll-top-btn" class="floating-btn"><i class="fas fa-arrow-up"></i></button>
+    </div>
+    <div id="weather-container"></div>
 </body>
 </html>

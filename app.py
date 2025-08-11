@@ -30,7 +30,7 @@ class Contact(db.Model):
     message = db.Column(db.Text, nullable=False)
     date_submitted = db.Column(db.DateTime, default=datetime.utcnow)
 
-    def __repr__(self):
+    def _repr_(self):
         return f"<Contact {self.id} {self.email}>"
     
 # Create tables after models are defined
@@ -39,22 +39,34 @@ with app.app_context():
     
 
 # Load projects from a simple in-memory list for demonstration.
-# You can replace this with dynamic content or a database table.
 projects = [
     {
         "name": "AI Chatbot",
         "description": "GPT-powered conversational assistant integrated into web and messaging platforms.",
-        "image": "/static/images/project1.svg"
+        "image": "images/your_project1_screenshot.png",
+        "demo_url": "#",
+        "github_url": "#"
     },
     {
         "name": "E-commerce Platform",
         "description": "Full-stack e-commerce platform with secure payments and admin dashboard.",
-        "image": "/static/images/project2.svg"
+        "image": "images/your_project2_screenshot.png",
+        "demo_url": "#",
+        "github_url": "#"
     },
     {
         "name": "Portfolio Website",
-        "description": "Modern, responsive portfolio sites with smooth animations and CMS integration.",
-        "image": "/static/images/project3.svg"
+        "description": "Modern, responsive portfolio with smooth animations and CMS integration.",
+        "image": "images/your_project3_screenshot.png",
+        "demo_url": "#",
+        "github_url": "#"
+    },
+    {
+        "name": "Note Management System",
+        "description": "A full-stack, real-time application for managing notes and tasks, built to showcase our development prowess.",
+        "image": "images/note-management-system-screenshot.png",
+        "demo_url": "#",
+        "github_url": "#"
     }
 ]
 
